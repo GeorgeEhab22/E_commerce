@@ -16,39 +16,44 @@ class CustomProfileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 16.0,
+        horizontal: 22.0,
         vertical: 15,
       ),
-      child: ListTile(
-        leading: leading,
-        title: Text(
-          titel,
-          style: const TextStyle(
-            fontSize: 22,
-            color: kN22,
-            fontFamily: 'Poppins',
+      child: Row(
+        children: [
+          leading,
+          const SizedBox(
+            width: 16,
           ),
-        ),
-        trailing: Row(
-          children: [
-            Text(
-              trailingText,
-              style: const TextStyle(
-                fontSize: 12,
-                fontFamily: 'Poppins',
-                color: kN90,
-              ),
+          Text(
+            titel,
+            style: const TextStyle(
+              fontSize: 16,
+              color: kN22,
+              fontFamily: 'Poppins',
             ),
-            const SizedBox(
-              width: 16,
+          ),
+          const Spacer(),
+          Text(
+            trailingText,
+            style: const TextStyle(
+              fontSize: 12,
+              fontFamily: 'Poppins',
+              color: kN90,
             ),
-            const Icon(
+          ),
+          const SizedBox(
+            width: 16,
+          ),
+          Transform.rotate(
+            angle: 3.14,
+            child: const Icon(
               Icons.arrow_back_ios_new,
               color: kN90,
               size: 24,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -63,36 +63,46 @@ class CustomProfileViewBody extends StatelessWidget {
           height: 32,
         ),
         CustomProfileItem(
-          leading: SvgPicture.asset(
-            Assets.imagesGender,
+          leading: Center(
+            child: SvgPicture.asset(
+              Assets.imagesGender,
+            ),
           ),
           titel: 'Name',
           trailingText: displayName,
         ),
         CustomProfileItem(
-          leading: SvgPicture.asset(
-            Assets.imagesEmail,
+          leading: Center(
+            child: SvgPicture.asset(
+              Assets.imagesEmail,
+            ),
           ),
           titel: 'Email',
           trailingText: email,
         ),
         CustomProfileItem(
-          leading: SvgPicture.asset(
-            Assets.imagesGender,
+          leading: Center(
+            child: SvgPicture.asset(
+              Assets.imagesGender,
+            ),
           ),
           titel: 'Gender',
           trailingText: 'Male',
         ),
         CustomProfileItem(
-          leading: SvgPicture.asset(
-            Assets.imagesPhone,
+          leading: Center(
+            child: SvgPicture.asset(
+              Assets.imagesPhone,
+            ),
           ),
           titel: 'Phone Number',
           trailingText: '010978576989',
         ),
         CustomProfileItem(
-          leading: SvgPicture.asset(
-            Assets.imagesPassword,
+          leading: Center(
+            child: SvgPicture.asset(
+              Assets.imagesPassword,
+            ),
           ),
           titel: 'Change Password',
           trailingText: '................',
