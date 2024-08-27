@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "768140632617",
+    "project_id": "support-training-app",
+    "storage_bucket": "support-training-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768140632617:android:c735cccf0beb8be3a4f238",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSqIGcHXE_ynLyrd8gEo3ttP2Em9qvgQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
