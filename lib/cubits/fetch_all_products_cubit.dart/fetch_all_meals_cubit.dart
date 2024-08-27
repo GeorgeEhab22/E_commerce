@@ -9,7 +9,7 @@ class FetchAllProductssCubit extends Cubit<FetchAllProductssCubitState> {
   FetchAllProductssCubit() : super(FetchAllProductsCubitInitial());
   List<ProductModel> meals = [];
   late Box<ProductModel> myBox;
-  fetchAllProduct() {
+  void fetchAllProduct() {
     try {
       var mealBox = Hive.box<ProductModel>(kProductsBox);
       var storedMeals = mealBox.values.toList();

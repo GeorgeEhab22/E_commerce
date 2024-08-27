@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce/constants.dart';
+
 import 'package:e_commerce/cubits/getProducts_cubit.dart';
 import 'package:e_commerce/helpers/simple_bloc_observer.dart';
 import 'package:e_commerce/models/products_model.dart';

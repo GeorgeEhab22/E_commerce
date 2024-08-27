@@ -21,8 +21,6 @@ class DetailsScreenMiddleSection extends StatefulWidget {
 
 class _DetailsScreenMiddleSectionState
     extends State<DetailsScreenMiddleSection> {
-  bool flag = false;
-
   @override
   Widget build(BuildContext context) {
     Box<ProductModel> box = Hive.box<ProductModel>(kProductsBox);
@@ -81,13 +79,11 @@ class _DetailsScreenMiddleSectionState
                     });
                   }
                 }
-                flag = !flag;
-                setState(() {});
               },
               child: Icon(
                 (product == null)
                     ? FontAwesomeIcons.heart
-                    : FontAwesomeIcons.solidBookmark,
+                    : FontAwesomeIcons.solidHeart,
                 color: kN90,
               ),
             ),
