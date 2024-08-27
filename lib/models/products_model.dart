@@ -1,11 +1,23 @@
-class Products {
+import 'package:hive/hive.dart';
+part 'products_model.g.dart';
+
+@HiveType(
+  typeId: 0,
+)
+class ProductModel {
+  @HiveField(0)
   final String? title;
+  @HiveField(1)
   final String? description;
+  @HiveField(2)
   final String? price;
+  @HiveField(3)
   final String? rating;
+  @HiveField(4)
   final String? thumbnail;
+  @HiveField(5)
   final String? discountPercentage;
-  Products({
+  ProductModel({
     required this.description,
     required this.price,
     required this.rating,
@@ -13,8 +25,8 @@ class Products {
     required this.title,
     this.discountPercentage,
   });
-  factory Products.fromjson(json) {
-    return Products(
+  factory ProductModel.fromjson(json) {
+    return ProductModel(
       description: json['description'] ?? 'no description here',
       price: json['price'].toString(),
       rating: json['rating'].toString(),
