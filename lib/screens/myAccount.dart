@@ -27,7 +27,10 @@ class MyAccount extends StatelessWidget {
           ),
         ),
       ),
-      body: CustomProfileViewBody(displayName: displayName, email: email),
+      body: CustomProfileViewBody(
+        displayName: displayName,
+        email: email,
+      ),
     );
   }
 }

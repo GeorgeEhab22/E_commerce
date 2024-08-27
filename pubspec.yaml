@@ -38,6 +38,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
+  flutter_svg: ^2.0.10+1
   font_awesome_flutter: ^10.7.0
   iconly: ^1.0.1
   introduction_screen: ^3.1.14
@@ -73,7 +74,6 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Bold.ttf
-       
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
@@ -82,3 +82,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_assets:
+  assets_path: assets/images
+  output_path: lib/helpers/
+  filename: assets.dart
