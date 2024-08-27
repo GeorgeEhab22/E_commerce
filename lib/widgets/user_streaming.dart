@@ -14,24 +14,28 @@ class UserStreaming extends StatelessWidget {
     return StreamBuilder(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const ModalProgressHUD(
-            inAsyncCall: true,
-            child: Center(
-              child: CircularProgressIndicator(
-                color: primaryColor,
+        try {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const ModalProgressHUD(
+              inAsyncCall: true,
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: primaryColor,
+                ),
               ),
-            ),
-          );
-        }
-        if (snapshot.hasError) {
-          getShowSnackBar(context, 'error occured');
-        }
-        if (snapshot.data == null) {
-          return const SplashScreen();
-        }
-        if (snapshot.hasData) {
-          return const Navigation();
+            );
+          }
+          if (snapshot.hasError) {
+            getShowSnackBar(context, 'error occured');
+          }
+          if (snapshot.data == null) {
+            return const SplashScreen();
+          }
+          if (snapshot.hasData) {
+            return const Navigation();
+          }
+        } catch (e) {
+          //
         }
         return const SizedBox();
       },
