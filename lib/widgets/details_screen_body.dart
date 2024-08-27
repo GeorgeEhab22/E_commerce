@@ -1,4 +1,4 @@
-import 'package:e_commerce/models/products.dart';
+import 'package:e_commerce/models/products_model.dart';
 import 'package:e_commerce/widgets/details_screen_bottom_section.dart';
 import 'package:e_commerce/widgets/details_screen_middle_dection.dart';
 import 'package:e_commerce/widgets/details_sreen_top_section.dart';
@@ -9,7 +9,7 @@ class DetailsScreenBody extends StatelessWidget {
     super.key,
     required this.product,
   });
-  final Products product;
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

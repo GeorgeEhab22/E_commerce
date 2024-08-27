@@ -1,13 +1,13 @@
 import 'package:bloc/bloc.dart';
-import 'package:e_commerce/models/products.dart';
+import 'package:e_commerce/models/products_model.dart';
 
-part 'delete_meal_cubit_state.dart';
+part 'delete_product_cubit_state.dart';
 
 class DeleteProductCubit extends Cubit<DeleteProductCubitState> {
   DeleteProductCubit() : super(DeleteProductCubitInitial());
 
   Future<void> deleteMeal({
-    required Products mealModel,
+    required ProductModel mealModel,
   }) async {
     try {
       // await mealBox.delete(mealModel.idMeal);

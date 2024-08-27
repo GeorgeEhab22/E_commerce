@@ -14,7 +14,7 @@ final class GetProductsFailure extends GetProductsState {
 }
 
 final class GetProductsSuccess extends GetProductsState {
-  final List<Products> productsList;
+  final List<ProductModel> productsList;
 
   GetProductsSuccess({required this.productsList});
 }

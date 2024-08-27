@@ -1,4 +1,4 @@
-import 'package:e_commerce/models/products.dart';
+import 'package:e_commerce/models/products_model.dart';
 import 'package:e_commerce/widgets/custom_common_header.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,7 @@ class CustomDetailsScreenHeader extends StatelessWidget {
     super.key,
     required this.product,
   });
-  final Products product;
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Row(

@@ -1,15 +1,14 @@
 import 'package:e_commerce/constants.dart';
+import 'package:e_commerce/models/products_model.dart';
 import 'package:e_commerce/screens/favorite_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../models/products.dart';
 
 class DetailsScreenBottomSection extends StatelessWidget {
   const DetailsScreenBottomSection({
     super.key,
     required this.product,
   });
-  final Products product;
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

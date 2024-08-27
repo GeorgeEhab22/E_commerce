@@ -1,4 +1,4 @@
-import 'package:e_commerce/models/products.dart';
+import 'package:e_commerce/models/products_model.dart';
 import 'package:e_commerce/widgets/custom_price_row.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,7 +7,7 @@ import '../constants.dart';
 
 class DetailsScreenMiddleSection extends StatefulWidget {
   const DetailsScreenMiddleSection({super.key, required this.product});
-  final Products product;
+  final ProductModel product;
 
   @override
   State<DetailsScreenMiddleSection> createState() =>
@@ -39,8 +39,12 @@ class _DetailsScreenMiddleSectionState
               ),
             ),
             const Spacer(),
-            GestureDetector(
+            InkWell(
+              borderRadius: BorderRadius.circular(
+                18,
+              ),
               onTap: () {
+                // add here
                 flag = !flag;
                 setState(() {});
               },

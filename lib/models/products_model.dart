@@ -6,16 +6,18 @@ part 'products_model.g.dart';
 )
 class ProductModel {
   @HiveField(0)
-  final String? title;
+  final String? id;
   @HiveField(1)
-  final String? description;
+  final String? title;
   @HiveField(2)
-  final String? price;
+  final String? description;
   @HiveField(3)
-  final String? rating;
+  final String? price;
   @HiveField(4)
-  final String? thumbnail;
+  final String? rating;
   @HiveField(5)
+  final String? thumbnail;
+  @HiveField(6)
   final String? discountPercentage;
   ProductModel({
     required this.description,
@@ -23,7 +25,8 @@ class ProductModel {
     required this.rating,
     required this.thumbnail,
     required this.title,
-    this.discountPercentage,
+    required this.discountPercentage,
+    required this.id,
   });
   factory ProductModel.fromjson(json) {
     return ProductModel(
@@ -33,6 +36,7 @@ class ProductModel {
       thumbnail: json['thumbnail'] ?? 'no thumbnail here',
       title: json['title'] ?? "no title here",
       discountPercentage: json['discountPercentage'].toString(),
+      id: json['id'].toString(),
     );
   }
 }

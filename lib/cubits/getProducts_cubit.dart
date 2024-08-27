@@ -1,5 +1,5 @@
 import 'package:e_commerce/api/apiConstants.dart';
-import 'package:e_commerce/models/products.dart';
+import 'package:e_commerce/models/products_model.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 import '../api/Services.dart';
@@ -12,7 +12,7 @@ class GetProductsCubit extends Cubit<GetProductsState> {
   getProducts() async {
     emit(GetProductsLoading());
     try {
-      List<Products> products = await Services()
+      List<ProductModel> products = await Services()
           .getData(path: ApiConstants.baseUrl + ApiConstants.endPoint);
 
       emit(GetProductsSuccess(productsList: products));

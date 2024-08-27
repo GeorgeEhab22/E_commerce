@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_commerce/models/products.dart';
+import 'package:e_commerce/models/products_model.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_details_screen_header.dart';
 
 class DetailsSreenTopSection extends StatelessWidget {
   const DetailsSreenTopSection({super.key, required this.product});
-  final Products product;
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
