@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
         title: Center(
           child: SizedBox(
             width: isTabletOrDesktop ? width * 0.5 : width * 0.75,
-            height: height * 0.05,
+            height: 100,
             child: TextField(
               autofocus: false,
               style: const TextStyle(color: Colors.grey),

@@ -1,5 +1,7 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce/cubits/getProducts_cubit.dart';
 import 'package:e_commerce/screens/splash_screen.dart';
+import 'package:e_commerce/widgets/user_streaming.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,11 +15,16 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const ECommerceApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ECommerceApp extends StatelessWidget {
+  const ECommerceApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +41,13 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
         theme: ThemeData(
           primaryColor: const Color(0xff40BFFF),
         ),
         debugShowCheckedModeBanner: false,
-        home: const SplashScreen(),
+        home: const UserStreaming(),
       ),
     );
   }

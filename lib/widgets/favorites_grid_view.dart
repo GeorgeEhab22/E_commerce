@@ -12,7 +12,7 @@ class FavoritesGridView extends StatelessWidget {
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
         crossAxisCount: 2,
-        childAspectRatio: 0.62,
+        childAspectRatio: 0.6,
       ),
       itemBuilder: (BuildContext context, int index) => const FavoriteItem(),
     );
