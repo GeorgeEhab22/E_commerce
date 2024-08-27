@@ -14,10 +14,11 @@ class HomeViewBody extends StatelessWidget {
       right: false,
       left: false,
       child: CustomScrollView(
+        clipBehavior: Clip.none,
         slivers: [
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                   horizontal: 20.0,
                 ),
                 child: CustomTextField(text: 'Search')),
