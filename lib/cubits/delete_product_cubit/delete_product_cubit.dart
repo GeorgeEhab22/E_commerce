@@ -1,16 +1,20 @@
 import 'package:bloc/bloc.dart';
+import 'package:e_commerce/constants.dart';
 import 'package:e_commerce/models/products_model.dart';
+import 'package:hive/hive.dart';
 
 part 'delete_product_cubit_state.dart';
 
 class DeleteProductCubit extends Cubit<DeleteProductCubitState> {
   DeleteProductCubit() : super(DeleteProductCubitInitial());
 
-  Future<void> deleteMeal({
-    required ProductModel mealModel,
+  Future<void> deleteProduct({
+    required ProductModel productModel,
   }) async {
     try {
-      // await mealBox.delete(mealModel.idMeal);
+      var productsBox = Hive.box<ProductModel>(kProductsBox);
+
+      await productsBox.delete(productModel.id);
       emit(DeleteProductSuccess());
     } catch (e) {
       emit(

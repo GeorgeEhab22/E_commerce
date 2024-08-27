@@ -1,14 +1,19 @@
+import 'package:e_commerce/cubits/add_product_cubit/add_product_cubit.dart';
+import 'package:e_commerce/cubits/delete_product_cubit/delete_product_cubit.dart';
+import 'package:e_commerce/cubits/fetch_all_products_cubit.dart/fetch_all_meals_cubit.dart';
+import 'package:e_commerce/helpers/get_snack_bar.dart';
 import 'package:e_commerce/models/products_model.dart';
 import 'package:e_commerce/widgets/custom_price_row.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hive/hive.dart';
 
 import '../constants.dart';
 
 class DetailsScreenMiddleSection extends StatefulWidget {
   const DetailsScreenMiddleSection({super.key, required this.product});
   final ProductModel product;
-
   @override
   State<DetailsScreenMiddleSection> createState() =>
       _DetailsScreenMiddleSectionState();
@@ -17,8 +22,11 @@ class DetailsScreenMiddleSection extends StatefulWidget {
 class _DetailsScreenMiddleSectionState
     extends State<DetailsScreenMiddleSection> {
   bool flag = false;
+
   @override
   Widget build(BuildContext context) {
+    Box<ProductModel> box = Hive.box<ProductModel>(kProductsBox);
+    ProductModel? product = box.get(widget.product.id);
     return Column(
       children: [
         Row(
@@ -43,13 +51,43 @@ class _DetailsScreenMiddleSectionState
               borderRadius: BorderRadius.circular(
                 18,
               ),
-              onTap: () {
+              onTap: () async {
                 // add here
+                if (product == null) {
+                  await BlocProvider.of<AddProductCubit>(context)
+                      .addProduct(productModle: widget.product);
+
+                  if (mounted) {
+                    setState(() {
+                      getShowSnackBar(
+                        context,
+                        'Saved successfully',
+                      );
+                      BlocProvider.of<FetchAllProductssCubit>(context)
+                          .fetchAllProduct();
+                    });
+                  }
+                } else {
+                  await BlocProvider.of<DeleteProductCubit>(context)
+                      .deleteProduct(productModel: widget.product);
+                  if (mounted) {
+                    setState(() {
+                      getShowSnackBar(
+                        context,
+                        'Unsaved',
+                      );
+                      BlocProvider.of<FetchAllProductssCubit>(context)
+                          .fetchAllProduct();
+                    });
+                  }
+                }
                 flag = !flag;
                 setState(() {});
               },
               child: Icon(
-                (!flag) ? FontAwesomeIcons.heart : FontAwesomeIcons.solidHeart,
+                (product == null)
+                    ? FontAwesomeIcons.heart
+                    : FontAwesomeIcons.solidBookmark,
                 color: kN90,
               ),
             ),
