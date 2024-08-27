@@ -25,22 +25,28 @@ class FavoriteScreenBody extends StatelessWidget {
               if (state is FetchAllProductsSuccess) {
                 var product = state.productsList;
                 return (product.isEmpty)
-                    ? const SliverToBoxAdapter(
-                        child: Center(
-                          child: Text(
-                            'No products saved yet',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'Poppins',
-                                color: kN22),
+                    ? SliverFillRemaining(
+                        hasScrollBody: false,
+                        child: Transform.translate(
+                          offset: const Offset(0, -60),
+                          child: const Center(
+                            child: Text(
+                              'No products saved yet',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'Poppins',
+                                  color: kN22),
+                            ),
                           ),
                         ),
                       )
-                    : const SliverPadding(
-                        padding: EdgeInsets.symmetric(
+                    : SliverPadding(
+                        padding: const EdgeInsets.symmetric(
                           horizontal: 16,
                         ),
-                        sliver: FavoritesGridView(),
+                        sliver: FavoritesGridView(
+                          products: state.productsList,
+                        ),
                       );
               } else if (state is FetchAllProductsFailure) {
                 return SliverToBoxAdapter(
