@@ -3,6 +3,7 @@ import 'package:e_commerce/helpers/assets.dart';
 import 'package:e_commerce/widgets/custom_profiile_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomProfileViewBody extends StatelessWidget {
   const CustomProfileViewBody({
@@ -20,16 +21,16 @@ class CustomProfileViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
-          height: 52, // Responsive height
+          height: 12, // Responsive height
         ),
         Row(
           children: [
             const Padding(
               padding: EdgeInsets.only(
-                left: 36,
+                left: 16,
               ), // Responsive padding
               child: CircleAvatar(
-                radius: 42, // Responsive radius
+                radius: 38, // Responsive radius
                 backgroundImage: AssetImage("assets/images/Messi.jpg"),
               ),
             ),
@@ -60,52 +61,84 @@ class CustomProfileViewBody extends StatelessWidget {
           ],
         ),
         const SizedBox(
-          height: 32,
+          height: 22,
         ),
         CustomProfileItem(
-          leading: Center(
-            child: SvgPicture.asset(
-              Assets.imagesGender,
-            ),
-          ),
-          titel: 'Name',
-          trailingText: displayName,
-        ),
-        CustomProfileItem(
-          leading: Center(
-            child: SvgPicture.asset(
-              Assets.imagesEmail,
+          leading: SizedBox(
+            width: 32,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: SvgPicture.asset(
+                Assets.imagesEmail,
+              ),
             ),
           ),
           titel: 'Email',
           trailingText: email,
         ),
         CustomProfileItem(
-          leading: Center(
-            child: SvgPicture.asset(
-              Assets.imagesGender,
+          leading: SizedBox(
+            width: 32,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: SvgPicture.asset(
+                Assets.imagesGender,
+              ),
             ),
           ),
           titel: 'Gender',
           trailingText: 'Male',
         ),
         CustomProfileItem(
-          leading: Center(
-            child: SvgPicture.asset(
-              Assets.imagesPhone,
+          leading: SizedBox(
+            width: 32,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: SvgPicture.asset(
+                Assets.imagesPhone,
+              ),
             ),
           ),
           titel: 'Phone Number',
           trailingText: '010978576989',
         ),
         CustomProfileItem(
-          leading: Center(
-            child: SvgPicture.asset(
-              Assets.imagesPassword,
+          leading: SizedBox(
+            width: 32,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: SvgPicture.asset(
+                Assets.imagesPassword,
+              ),
             ),
           ),
           titel: 'Change Password',
           trailingText: '................',
+        ),
+        const CustomProfileItem(
+          leading: SizedBox(
+            width: 32,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Icon(FontAwesomeIcons.language, color: kN40),
+            ),
+          ),
+          titel: 'Language',
+          trailingText: 'English US',
+        ),
+        const CustomProfileItem(
+          leading: SizedBox(
+            width: 32,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Icon(
+                FontAwesomeIcons.circleHalfStroke,
+                color: kN40,
+              ),
+            ),
+          ),
+          titel: 'Dark mode',
+          trailingText: 'Light Mode',
         ),
       ],
     );

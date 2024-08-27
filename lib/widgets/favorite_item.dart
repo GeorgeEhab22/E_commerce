@@ -61,6 +61,7 @@ class FavoriteItem extends StatelessWidget {
             ),
             const CustomPriceRow(
               fontSize: 12,
+              product: null,
             ),
             const SizedBox(
               height: 8,

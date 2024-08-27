@@ -1,31 +1,42 @@
+import 'package:e_commerce/models/products.dart';
 import 'package:e_commerce/widgets/details_screen_bottom_section.dart';
 import 'package:e_commerce/widgets/details_screen_middle_dection.dart';
 import 'package:e_commerce/widgets/details_sreen_top_section.dart';
 import 'package:flutter/material.dart';
 
 class DetailsScreenBody extends StatelessWidget {
-  const DetailsScreenBody({super.key});
+  const DetailsScreenBody({
+    super.key,
+    required this.product,
+  });
+  final Products product;
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       right: false,
       left: false,
       child: Column(
         children: [
-          DetailsSreenTopSection(),
+          DetailsSreenTopSection(
+            product: product,
+          ),
           Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 16.0,
             ),
-            child: DetailsScreenMiddleSection(),
+            child: DetailsScreenMiddleSection(
+              product: product,
+            ),
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
               ),
-              child: DetailsScreenBottomSection(),
+              child: DetailsScreenBottomSection(
+                product: product,
+              ),
             ),
           ),
         ],

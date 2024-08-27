@@ -1,3 +1,4 @@
+import 'package:e_commerce/models/products.dart';
 import 'package:e_commerce/widgets/custom_price_row.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -5,7 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../constants.dart';
 
 class DetailsScreenMiddleSection extends StatefulWidget {
-  const DetailsScreenMiddleSection({super.key});
+  const DetailsScreenMiddleSection({super.key, required this.product});
+  final Products product;
 
   @override
   State<DetailsScreenMiddleSection> createState() =>
@@ -26,9 +28,9 @@ class _DetailsScreenMiddleSectionState
               constraints: BoxConstraints(
                 maxWidth: MediaQuery.sizeOf(context).width * 0.7,
               ),
-              child: const Text(
-                'Nike Air Zoom Pegasus 36 Miami',
-                style: TextStyle(
+              child: Text(
+                widget.product.title ?? "Nothing",
+                style: const TextStyle(
                   fontSize: 20,
                   color: kN22,
                   fontFamily: 'Poppins',
@@ -52,7 +54,9 @@ class _DetailsScreenMiddleSectionState
         const SizedBox(
           height: 16,
         ),
-        const CustomPriceRow(),
+        CustomPriceRow(
+          product: widget.product,
+        ),
         const SizedBox(
           height: 24,
         )

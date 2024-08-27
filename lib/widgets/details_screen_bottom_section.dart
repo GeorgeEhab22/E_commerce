@@ -2,10 +2,14 @@ import 'package:e_commerce/constants.dart';
 import 'package:e_commerce/screens/favorite_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../models/products.dart';
+
 class DetailsScreenBottomSection extends StatelessWidget {
   const DetailsScreenBottomSection({
     super.key,
+    required this.product,
   });
+  final Products product;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +28,9 @@ class DetailsScreenBottomSection extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        const Text(
-          'The Nike Air Max 270 React ENG combines a full-length React foam midsole with a 270 Max Air unit for unrivaled comfort and a striking visual experience.',
-          style: TextStyle(
+        Text(
+          product.description ?? "No Description",
+          style: const TextStyle(
             color: kN90,
             fontFamily: 'Poppins',
             fontSize: 12,

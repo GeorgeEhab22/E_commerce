@@ -1,30 +1,34 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce/models/products.dart';
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
 import 'custom_details_screen_header.dart';
 
 class DetailsSreenTopSection extends StatelessWidget {
-  const DetailsSreenTopSection({super.key});
+  const DetailsSreenTopSection({super.key, required this.product});
+  final Products product;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.only(
+        Padding(
+          padding: const EdgeInsets.only(
             left: 16.0,
             right: 16,
             top: 26,
           ),
-          child: CustomDetailsScreenHeader(),
+          child: CustomDetailsScreenHeader(
+            product: product,
+          ),
         ),
         const SizedBox(
           height: 28,
         ),
         AspectRatio(
           aspectRatio: 375 / 238,
-          child: Image.asset(
-            kTestImage,
+          child: CachedNetworkImage(
+            imageUrl: product.thumbnail!,
             fit: BoxFit.fill,
           ),
         ),
