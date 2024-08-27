@@ -21,7 +21,7 @@ class CustomProfileViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
-          height: 12, // Responsive height
+          height: 22, // Responsive height
         ),
         Row(
           children: [

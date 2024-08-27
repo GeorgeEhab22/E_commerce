@@ -1,4 +1,3 @@
-import 'package:e_commerce/screens/HomePage.dart';
 import 'package:e_commerce/screens/signup.dart';
 import 'package:e_commerce/widgets/log_in_middle_section.dart';
 import 'package:flutter/material.dart';
@@ -105,27 +104,6 @@ class LogInBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const HomePage();
-                }));
-              },
-              child: const Text(
-                'forget password?',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w700,
-                    fontSize: 13,
-                    letterSpacing: .5,
-                    color: Color(0xff40BFFF),
-                    fontStyle: FontStyle.normal),
-              ),
-            ),
-            const SizedBox(
-              height: 12,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -133,7 +111,7 @@ class LogInBody extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Don’t have a account? ',
+                  r'Don’t have a account? ',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: 'Poppins',

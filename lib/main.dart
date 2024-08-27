@@ -4,6 +4,7 @@ import 'package:e_commerce/cubits/delete_product_cubit/delete_product_cubit.dart
 import 'package:e_commerce/cubits/fetch_all_products_cubit.dart/fetch_all_meals_cubit.dart';
 
 import 'package:e_commerce/cubits/getProducts_cubit.dart';
+import 'package:e_commerce/cubits/login_cubit/login_cubit.dart';
 import 'package:e_commerce/helpers/simple_bloc_observer.dart';
 import 'package:e_commerce/models/products_model.dart';
 import 'package:e_commerce/widgets/user_streaming.dart';
@@ -11,8 +12,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-
-import 'cubits/login_cubit.dart';
 import 'cubits/signup_cubit.dart';
 import 'firebase_options.dart';
 

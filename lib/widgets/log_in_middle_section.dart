@@ -1,7 +1,8 @@
-import 'package:e_commerce/api/firebase_helper.dart';
 import 'package:e_commerce/constants.dart';
+import 'package:e_commerce/cubits/login_cubit/login_cubit.dart';
 import 'package:e_commerce/widgets/custom_auth_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LogInMiddleSection extends StatefulWidget {
   const LogInMiddleSection({super.key});
@@ -94,16 +95,17 @@ class _LogInMiddleSectionState extends State<LogInMiddleSection> {
             onPressed: () async {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                await FireBaseHelper().signIn(
+                await BlocProvider.of<LoginCubit>(context).userLogin(
                   email: email,
                   password: password,
                 );
+                formKey.currentState!.reset();
+
                 autovalidateMode = AutovalidateMode.disabled;
-                setState(() {});
               } else {
                 autovalidateMode = AutovalidateMode.always;
-                setState(() {});
               }
+              setState(() {});
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF40BFFF),
