@@ -4,11 +4,39 @@ import 'package:e_commerce/widgets/log_in_middle_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LogInBody extends StatelessWidget {
+class LogInBody extends StatefulWidget {
   const LogInBody({
     super.key,
   });
 
+  @override
+  State<LogInBody> createState() => _LogInBodyState();
+}
+
+class _LogInBodyState extends State<LogInBody> with SingleTickerProviderStateMixin{
+  late AnimationController _controller;
+  late Animation<double> _fadeAnimation;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 3),
+      vsync: this,
+    );
+
+    _fadeAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeIn,
+    );
+
+    _controller.repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -19,8 +47,10 @@ class LogInBody extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.asset('assets/Logo/login.png'),
-            const SizedBox(
+           FadeTransition(
+              opacity: _fadeAnimation,
+              child: Image.asset('assets/Logo/login.png'),
+            ),            const SizedBox(
               height: 15,
             ),
             const Text(
