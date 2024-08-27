@@ -1,6 +1,5 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce/cubits/getProducts_cubit.dart';
-import 'package:e_commerce/screens/splash_screen.dart';
 import 'package:e_commerce/widgets/user_streaming.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +37,7 @@ class ECommerceApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => GetProductsCubit()..getProducts(),
-        )
+        ),
       ],
       child: MaterialApp(
         locale: DevicePreview.locale(context),
