@@ -7,15 +7,14 @@ part 'fetch_all_meals_cubit_state.dart';
 
 class FetchAllProductssCubit extends Cubit<FetchAllProductssCubitState> {
   FetchAllProductssCubit() : super(FetchAllProductsCubitInitial());
-  List<ProductModel> meals = [];
+  List<ProductModel> products = [];
   late Box<ProductModel> myBox;
   void fetchAllProduct() {
     try {
-      var mealBox = Hive.box<ProductModel>(kProductsBox);
-      var storedMeals = mealBox.values.toList();
-      meals = storedMeals;
+      var productsBox = Hive.box<ProductModel>(kProductsBox);
+      var storedProducts = productsBox.values.toList();
       emit(
-        FetchAllProductsSuccess(productsList: storedMeals),
+        FetchAllProductsSuccess(productsList: storedProducts),
       );
     } catch (e) {
       emit(

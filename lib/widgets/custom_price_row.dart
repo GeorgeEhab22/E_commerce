@@ -5,9 +5,9 @@ import '../constants.dart';
 import '../models/products_model.dart';
 
 class CustomPriceRow extends StatelessWidget {
-  const CustomPriceRow({super.key, this.fontSize = 20, this.product});
+  const CustomPriceRow({super.key, this.fontSize = 20, required this.product});
   final double fontSize;
-  final ProductModel? product;
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,7 +22,7 @@ class CustomPriceRow extends StatelessWidget {
           ),
         ),
         Text(
-          product?.price.toString() ?? "0.0",
+          product.price.toString(),
           style: TextStyle(
             color: kN40,
             fontSize: fontSize,
@@ -40,7 +40,7 @@ class CustomPriceRow extends StatelessWidget {
           width: 8,
         ),
         Text(
-          product?.rating.toString() ?? '0',
+          product.rating.toString(),
           style: const TextStyle(
             color: kN22,
           ),

@@ -3,31 +3,50 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class CustomCommonHeader extends StatelessWidget {
-  const CustomCommonHeader({super.key, required this.title, this.onTap});
+  const CustomCommonHeader({
+    super.key,
+    required this.title,
+    this.onTap,
+    this.flag = false,
+  });
   final String title;
   final Function()? onTap;
+  final bool flag;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        InkWell(
-          borderRadius: BorderRadius.circular(
-            32,
-          ),
-          onTap: onTap,
-          child: const Icon(
-            Icons.arrow_back_ios,
-            color: kN90,
-          ),
-        ),
-        const SizedBox(
-          width: 12,
-        ),
-        ConstrainedBox(
-          constraints:
-              BoxConstraints(maxWidth: MediaQuery.sizeOf(context).width * 0.5),
-          child: Text(
+    return (!flag)
+        ? Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              InkWell(
+                borderRadius: BorderRadius.circular(
+                  32,
+                ),
+                onTap: onTap,
+                child: const Icon(
+                  Icons.arrow_back_ios,
+                  color: kN90,
+                ),
+              ),
+              const SizedBox(
+                width: 12,
+              ),
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                    maxWidth: MediaQuery.sizeOf(context).width * 0.5),
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    color: kN22,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          )
+        : Text(
             title,
             style: const TextStyle(
               fontSize: 18,
@@ -35,9 +54,6 @@ class CustomCommonHeader extends StatelessWidget {
               fontFamily: 'Poppins',
               fontWeight: FontWeight.bold,
             ),
-          ),
-        ),
-      ],
-    );
+          );
   }
 }

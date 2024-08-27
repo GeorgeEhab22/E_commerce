@@ -51,33 +51,37 @@ class _DetailsScreenMiddleSectionState
               ),
               onTap: () async {
                 // add here
-                if (product == null) {
-                  await BlocProvider.of<AddProductCubit>(context)
-                      .addProduct(productModle: widget.product);
+                try {
+                  if (product == null) {
+                    await BlocProvider.of<AddProductCubit>(context)
+                        .addProduct(productModle: widget.product);
 
-                  if (mounted) {
-                    setState(() {
-                      getShowSnackBar(
-                        context,
-                        'Saved successfully',
-                      );
-                      BlocProvider.of<FetchAllProductssCubit>(context)
-                          .fetchAllProduct();
-                    });
+                    if (mounted) {
+                      setState(() {
+                        getShowSnackBar(
+                          context,
+                          'Saved successfully',
+                        );
+                        BlocProvider.of<FetchAllProductssCubit>(context)
+                            .fetchAllProduct();
+                      });
+                    }
+                  } else {
+                    await BlocProvider.of<DeleteProductCubit>(context)
+                        .deleteProduct(productModel: widget.product);
+                    if (mounted) {
+                      setState(() {
+                        getShowSnackBar(
+                          context,
+                          'Unsaved',
+                        );
+                        BlocProvider.of<FetchAllProductssCubit>(context)
+                            .fetchAllProduct();
+                      });
+                    }
                   }
-                } else {
-                  await BlocProvider.of<DeleteProductCubit>(context)
-                      .deleteProduct(productModel: widget.product);
-                  if (mounted) {
-                    setState(() {
-                      getShowSnackBar(
-                        context,
-                        'Unsaved',
-                      );
-                      BlocProvider.of<FetchAllProductssCubit>(context)
-                          .fetchAllProduct();
-                    });
-                  }
+                } catch (e) {
+                  getShowSnackBar(context, e.toString());
                 }
               },
               child: Icon(

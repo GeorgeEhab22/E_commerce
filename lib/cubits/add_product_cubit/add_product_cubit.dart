@@ -8,7 +8,7 @@ part 'add_product_cubit_state.dart';
 
 class AddProductCubit extends Cubit<AddProductState> {
   AddProductCubit() : super(AddProductInitial());
-  addProduct({required ProductModel productModle}) async {
+  Future<void> addProduct({required ProductModel productModle}) async {
     try {
       var productsBox = Hive.box<ProductModel>(kProductsBox);
       String id = productModle.id!;

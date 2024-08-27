@@ -61,7 +61,7 @@ class FavoriteScreenBody extends StatelessWidget {
           ),
           const SliverToBoxAdapter(
             child: SizedBox(
-              height: 32,
+              height: 78,
             ),
           ),
         ],

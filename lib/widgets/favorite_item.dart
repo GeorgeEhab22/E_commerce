@@ -6,7 +6,6 @@ import 'package:e_commerce/models/products_model.dart';
 import 'package:e_commerce/widgets/custom_price_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive/hive.dart';
 
 import '../constants.dart';
 
@@ -21,8 +20,6 @@ class FavoriteItem extends StatefulWidget {
 class _FavoriteItemState extends State<FavoriteItem> {
   @override
   Widget build(BuildContext context) {
-    var productsBox = Hive.box<ProductModel>(kProductsBox);
-
     return Container(
       decoration: BoxDecoration(
         border: Border.all(

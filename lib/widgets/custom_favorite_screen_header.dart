@@ -8,30 +8,28 @@ class CustomFavoriteScreenHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const SizedBox(
+        SizedBox(
           height: 28,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: 16.0,
           ),
           child: CustomCommonHeader(
             title: 'Favorite Products',
-            onTap: () {
-              Navigator.pop(context);
-            },
+            flag: true,
           ),
         ),
-        const SizedBox(
+        SizedBox(
           height: 28,
         ),
-        const Divider(
+        Divider(
           thickness: 3,
           color: kEb,
         ),
-        const SizedBox(
+        SizedBox(
           height: 16,
         )
       ],

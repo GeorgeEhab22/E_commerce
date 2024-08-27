@@ -1,5 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce/constants.dart';
+import 'package:e_commerce/cubits/delete_product_cubit/delete_product_cubit.dart';
+import 'package:e_commerce/cubits/fetch_all_products_cubit.dart/fetch_all_meals_cubit.dart';
 
 import 'package:e_commerce/cubits/getProducts_cubit.dart';
 import 'package:e_commerce/helpers/simple_bloc_observer.dart';
@@ -15,14 +17,14 @@ import 'cubits/signup_cubit.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  Bloc.observer = SimpleBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await Hive.initFlutter();
-  await Hive.openBox<ProductModel>(kProductsBox);
   Hive.registerAdapter(ProductModelAdapter());
+  await Hive.openBox<ProductModel>(kProductsBox);
+  Bloc.observer = SimpleBlocObserver();
 
   runApp(
     DevicePreview(
@@ -47,6 +49,12 @@ class ECommerceApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => GetProductsCubit()..getProducts(),
+        ),
+        BlocProvider(
+          create: (context) => DeleteProductCubit(),
+        ),
+        BlocProvider(
+          create: (context) => FetchAllProductssCubit(),
         ),
       ],
       child: MaterialApp(
