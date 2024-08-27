@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "768140632617",
-    "project_id": "support-training-app",
-    "storage_bucket": "support-training-app.appspot.com"
+    "project_number": "145025515885",
+    "project_id": "ecommerceapp-e2323",
+    "storage_bucket": "ecommerceapp-e2323.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:768140632617:android:c735cccf0beb8be3a4f238",
+        "mobilesdk_app_id": "1:145025515885:android:54f5016011ec344e3cda64",
         "android_client_info": {
           "package_name": "com.example.e_commerce"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCSqIGcHXE_ynLyrd8gEo3ttP2Em9qvgQ8"
+          "current_key": "AIzaSyAZPfJn8_UnMBiY4wcX3kuo7kp-KRMfJug"
         }
       ],
       "services": {

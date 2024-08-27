@@ -41,29 +41,28 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDHhKuFl_16G88n93AR_O2d1HRa9Rd9j3U',
-    appId: '1:768140632617:web:d1b1af8bc4a67e34a4f238',
-    messagingSenderId: '768140632617',
-    projectId: 'support-training-app',
-    authDomain: 'support-training-app.firebaseapp.com',
-    storageBucket: 'support-training-app.appspot.com',
-    measurementId: 'G-R46GYZRS5K',
+    apiKey: 'AIzaSyCafESpt0TNpxUhpnpuLbN8VxQX7l1APOM',
+    appId: '1:145025515885:web:64fa38170f88f6e53cda64',
+    messagingSenderId: '145025515885',
+    projectId: 'ecommerceapp-e2323',
+    authDomain: 'ecommerceapp-e2323.firebaseapp.com',
+    storageBucket: 'ecommerceapp-e2323.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCSqIGcHXE_ynLyrd8gEo3ttP2Em9qvgQ8',
-    appId: '1:768140632617:android:c735cccf0beb8be3a4f238',
-    messagingSenderId: '768140632617',
-    projectId: 'support-training-app',
-    storageBucket: 'support-training-app.appspot.com',
+    apiKey: 'AIzaSyAZPfJn8_UnMBiY4wcX3kuo7kp-KRMfJug',
+    appId: '1:145025515885:android:54f5016011ec344e3cda64',
+    messagingSenderId: '145025515885',
+    projectId: 'ecommerceapp-e2323',
+    storageBucket: 'ecommerceapp-e2323.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDpj6fjsobnxtINt9ifap2MYO6Rc1Wf0FE',
-    appId: '1:768140632617:ios:67e94e1cd6da3127a4f238',
-    messagingSenderId: '768140632617',
-    projectId: 'support-training-app',
-    storageBucket: 'support-training-app.appspot.com',
+    apiKey: 'AIzaSyBrw0lRE_fM-yo713SeDR2cu4CLpUTXJxY',
+    appId: '1:145025515885:ios:a9eb45e0d7678d553cda64',
+    messagingSenderId: '145025515885',
+    projectId: 'ecommerceapp-e2323',
+    storageBucket: 'ecommerceapp-e2323.appspot.com',
     iosBundleId: 'com.example.eCommerce',
   );
 
@@ -77,12 +76,12 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyDHhKuFl_16G88n93AR_O2d1HRa9Rd9j3U',
-    appId: '1:768140632617:web:611dbdf8219cb53ea4f238',
-    messagingSenderId: '768140632617',
-    projectId: 'support-training-app',
-    authDomain: 'support-training-app.firebaseapp.com',
-    storageBucket: 'support-training-app.appspot.com',
-    measurementId: 'G-D77XZZZ2EY',
+    apiKey: 'AIzaSyCafESpt0TNpxUhpnpuLbN8VxQX7l1APOM',
+    appId: '1:145025515885:web:1788a392a53e481d3cda64',
+    messagingSenderId: '145025515885',
+    projectId: 'ecommerceapp-e2323',
+    authDomain: 'ecommerceapp-e2323.firebaseapp.com',
+    storageBucket: 'ecommerceapp-e2323.appspot.com',
   );
+
 }

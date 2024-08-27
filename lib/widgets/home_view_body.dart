@@ -7,8 +7,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubits/getProducts_cubit.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
+
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  String search = '';
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +26,20 @@ class HomeViewBody extends StatelessWidget {
       child: CustomScrollView(
         clipBehavior: Clip.none,
         slivers: [
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 20.0,
-                ),
-                child: CustomTextField(text: 'Search')),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20.0,
+              ),
+              child: CustomTextField(
+                text: 'Search',
+                onChanged: (value) {
+                  setState(() {
+                    search = value;
+                  });
+                },
+              ),
+            ),
           ),
           BlocBuilder<GetProductsCubit, GetProductsState>(
             builder: (context, state) {
@@ -35,6 +50,12 @@ class HomeViewBody extends StatelessWidget {
                   ),
                 );
               } else if (state is GetProductsSuccess) {
+                final filteredProducts = state.productsList
+                    .where((product) => product.title!
+                        .toLowerCase()
+                        .contains(search.toLowerCase()))
+                    .toList();
+
                 return SliverPadding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20,
@@ -46,11 +67,11 @@ class HomeViewBody extends StatelessWidget {
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
-                      childAspectRatio: 0.55, // Adjusted for taller cards
+                      childAspectRatio: 0.55,
                     ),
-                    itemCount: state.productsList.length,
+                    itemCount: filteredProducts.length,
                     itemBuilder: (context, index) {
-                      final product = state.productsList[index];
+                      final product = filteredProducts[index];
                       return InkWell(
                         borderRadius: BorderRadius.circular(15),
                         onTap: () {
@@ -64,22 +85,17 @@ class HomeViewBody extends StatelessWidget {
                         child: Card(
                           elevation: 2,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              15,
-                            ),
+                            borderRadius: BorderRadius.circular(15),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(
-                              12.0,
-                            ),
+                            padding: const EdgeInsets.all(12.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Stack(
                                   children: [
                                     AspectRatio(
-                                      aspectRatio:
-                                          1.0, // Keeps the image ratio consistent
+                                      aspectRatio: 1.0,
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(15),
                                         child: product.thumbnail != null
@@ -136,7 +152,7 @@ class HomeViewBody extends StatelessWidget {
                                       Row(
                                         children: [
                                           const Text(
-                                            "\$534.33", // Original price (static for example purposes)
+                                            "\$534.33",
                                             style: TextStyle(
                                               color: Colors.grey,
                                               decoration:
@@ -144,11 +160,10 @@ class HomeViewBody extends StatelessWidget {
                                               fontSize: 12,
                                             ),
                                           ),
-                                          // ignore: prefer_const_constructors
-                                          Spacer(),
+                                          const Spacer(),
                                           const SizedBox(width: 5),
                                           Text(
-                                            '${product.discountPercentage}%', // Discount (static for example purposes)
+                                            '${product.discountPercentage}%',
                                             style: const TextStyle(
                                               color: Colors.red,
                                               fontWeight: FontWeight.bold,
@@ -178,7 +193,11 @@ class HomeViewBody extends StatelessWidget {
                   ),
                 );
               } else {
-                return const SliverToBoxAdapter(child: Center(child: Text("")));
+                return const SliverToBoxAdapter(
+                  child: Center(
+                    child: Text(""),
+                  ),
+                );
               }
             },
           ),

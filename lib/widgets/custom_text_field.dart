@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, required this.text});
+  const CustomTextField({
+    super.key,
+    required this.text,
+    required this.onChanged,
+  });
+
   final String text;
+  final ValueChanged<String> onChanged;
+
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onChanged,
       autofocus: false,
       style: const TextStyle(color: Colors.grey),
       cursorColor: Colors.black,

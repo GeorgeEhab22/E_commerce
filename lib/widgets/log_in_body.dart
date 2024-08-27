@@ -1,6 +1,8 @@
+import 'package:e_commerce/cubits/login_cubit/login_cubit.dart';
 import 'package:e_commerce/screens/signup.dart';
 import 'package:e_commerce/widgets/log_in_middle_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LogInBody extends StatelessWidget {
   const LogInBody({
@@ -80,7 +82,7 @@ class LogInBody extends StatelessWidget {
               width: double.infinity,
               child: OutlinedButton.icon(
                 onPressed: () {
-                  // context.read<LoginCubit>().signInWithGoogle();
+                           context.read<LoginCubit>().signInWithGoogle();
                 },
                 icon: Image.asset(
                   'assets/Logo/google_icon.png',
