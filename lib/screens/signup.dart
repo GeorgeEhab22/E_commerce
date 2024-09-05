@@ -1,12 +1,42 @@
 import 'package:e_commerce/cubits/signup_cubit.dart';
 import 'package:e_commerce/screens/login.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubits/signup_state.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
+
+  @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage>with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _fadeAnimation;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 3),
+      vsync: this,
+    );
+
+    _fadeAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeIn,
+    );
+
+    _controller.repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -35,7 +65,10 @@ class SignupPage extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 130),
                 child: Column(
                   children: [
-                    Image.asset('assets/Logo/login.png'),
+                   FadeTransition(
+              opacity: _fadeAnimation,
+              child: Image.asset('assets/Logo/login.png'),
+                   ),
                     const SizedBox(height: 15),
                     const Text(
                       'Let’s Get Started',
